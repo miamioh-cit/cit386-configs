@@ -1,4 +1,4 @@
-# This the configuration for Europe-PC5
+# This the configuration for foxtrot-PC5
 #
 # Uncomment the following line to enable DHCP
 # dhcp
@@ -6,4 +6,4 @@
 # ip 192.168.1.1 255.0.0.0
 #
 
-set pcname Europe-PC5
+set pcname foxtrot-PC5

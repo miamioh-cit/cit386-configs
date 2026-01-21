@@ -1,6 +1,6 @@
 en
 conf t
-hostname India-SW1
+hostname golf-SW1
 vlan 10
 name HR
 vlan 20
@@ -59,3 +59,4 @@ line vty 0 4
  login authentication local
  transport input ssh telnet
 do copy run start
+

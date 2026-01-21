@@ -1,0 +1,4 @@
+# This the configuration for Japan-Web
+#
+set pcname bravo-Web
+ip 172.16.1.2 172.16.1.1 24

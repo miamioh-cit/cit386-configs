@@ -1,0 +1,4 @@
+# This the configuration for Europe-Web
+
+set pcname foxtrot-Web
+ip 172.16.1.2 172.16.1.1 24

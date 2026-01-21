@@ -1,4 +1,4 @@
-# This the configuration for America-PC6
+# This the configuration for echo-PC6
 #
 # Uncomment the following line to enable DHCP
 # dhcp
@@ -6,4 +6,4 @@
 # ip 192.168.1.1 255.0.0.0
 #
 
-set pcname America-PC6
+set pcname echo-PC6

@@ -1,6 +1,6 @@
 enable
 conf t
-hostname India-Edge
+hostname golf-Edge
 ip domain lookup
 !
 interface GigabitEthernet0/0
@@ -40,3 +40,4 @@ line vty 0 4
 end
 !
 copy run start
+

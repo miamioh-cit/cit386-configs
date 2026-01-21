@@ -1,6 +1,6 @@
 enable
 conf t
-hostname India-Int
+hostname golf-Int
 !
 interface GigabitEthernet0/1
  ip address 192.168.0.2 255.255.255.0
@@ -53,3 +53,4 @@ line vty 0 4
 end
 !
 copy run start
+

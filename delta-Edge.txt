@@ -1,6 +1,6 @@
 enable
 conf t
-hostname Germany-Edge
+hostname delta-Edge
 ip domain lookup
 no banner login
 no banner exec
@@ -48,3 +48,4 @@ line vty 0 4
 end
 !
 copy run start
+

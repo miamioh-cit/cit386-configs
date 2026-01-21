@@ -1,6 +1,6 @@
 enable
 conf t
-hostname Japan-Edge
+hostname bravo-Edge
 ip domain lookup
 no banner login
 no banner exec
@@ -43,4 +43,5 @@ line vty 0 4
 end
 !
 copy run start
+
 

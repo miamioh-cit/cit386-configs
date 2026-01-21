@@ -1,6 +1,6 @@
 en
 conf t
-hostname China-Edge
+hostname charlie-Edge
 no banner login
 no banner exec
 no banner incoming
@@ -47,4 +47,5 @@ line vty 0 4
 !
 end
 !
+
 copy run start

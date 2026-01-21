@@ -1,0 +1,3 @@
+# This the configuration for golf-PC7
+set pcname golf-PC7
+ip 192.168.20.3 192.168.20.1 24

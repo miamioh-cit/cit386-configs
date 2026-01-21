@@ -1,5 +1,5 @@
 Conf t
-hostname America-ASA
+hostname echo-ASA
 enable password admin
 !
 interface GigabitEthernet0/0
@@ -39,3 +39,4 @@ route inside 192.168.30.0 255.255.255.0 192.168.0.2 1
 route inside 192.168.40.0 255.255.255.0 192.168.0.2 1
 : end
 wri mem
+

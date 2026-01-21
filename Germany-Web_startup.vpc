@@ -1,0 +1,2 @@
+set pcname Germany-Web
+ip 172.16.1.2 172.16.1.1 24

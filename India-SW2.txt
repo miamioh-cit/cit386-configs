@@ -1,0 +1,62 @@
+en
+conf t
+hostname India-SW2
+vlan 10
+name HR
+vlan 20
+name Sales
+vlan 30
+name IT
+
+interface GigabitEthernet0/0 
+switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shut
+!
+interface GigabitEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+ no shut
+!
+interface GigabitEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+ no shut
+!
+interface GigabitEthernet0/3
+switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shut
+!
+interface GigabitEthernet1/0
+ switchport access vlan 30
+ switchport mode access
+ no shut
+!
+interface GigabitEthernet1/1
+ switchport access vlan 20
+ switchport mode access
+ no shut
+!
+interface GigabitEthernet1/2
+ switchport access vlan 20
+ switchport mode access
+ no shut
+!
+aaa new-model
+ip domain-name netwexp.com
+username admin secret admin
+ip ssh version 1
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login authentication local
+ transport input ssh telnet
+do copy run start

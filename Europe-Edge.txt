@@ -1,0 +1,50 @@
+enable
+conf t
+hostname Europe-Edge
+ip domain lookup
+no banner login
+no banner exec
+no banner incoming
+!
+interface GigabitEthernet0/0
+ ip address 10.12.0.2 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/2
+ ip address 10.7.0.2 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/3
+ ip address 10.6.0.1 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/4
+ ip address 10.1.0.2 255.255.255.0
+ no shutdown
+!
+router ospf 100
+ network 10.1.0.0 0.0.0.255 area 0
+ network 10.7.0.0 0.0.0.255 area 0
+ network 10.6.0.0 0.0.0.255 area 0
+ network 10.12.0.0 0.0.0.255 area 0
+!
+aaa new-model
+ip domain-name netwexp.com
+username admin secret admin
+ip ssh version 1
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login authentication local
+ transport input ssh telnet
+!
+end
+!
+copy run start

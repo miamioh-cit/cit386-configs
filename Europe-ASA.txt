@@ -1,0 +1,39 @@
+conf t
+hostname Europe-ASA
+enable password admin
+!
+interface GigabitEthernet0/0
+ nameif outside
+ security-level 0
+ ip address 10.12.0.1 255.255.255.0
+!
+interface GigabitEthernet0/1
+ nameif inside
+ security-level 100
+ ip address 192.168.0.1 255.255.255.0
+!
+interface GigabitEthernet0/2
+ nameif dmz
+ security-level 50
+ ip address 172.16.1.1 255.255.255.0
+!
+object network inside-net
+ subnet 192.168.0.0 255.255.255.0
+object network dmz-net
+ host 172.16.1.2
+access-list OUT-IN extended permit ip any any
+
+object network inside-net
+ subnet 0.0.0.0 0.0.0.0
+ nat (inside,outside) dynamic interface
+object network dmz-net
+ nat (dmz,outside) static 10.12.0.3
+access-group OUT-IN in interface outside
+route outside 0.0.0.0 0.0.0.0 10.12.0.2 1
+route inside 192.168.10.0 255.255.255.0 192.168.0.2 1
+route inside 192.168.20.0 255.255.255.0 192.168.0.2 1
+route inside 192.168.30.0 255.255.255.0 192.168.0.2 1
+route inside 192.168.40.0 255.255.255.0 192.168.0.2 1
+
+: end
+wri mem

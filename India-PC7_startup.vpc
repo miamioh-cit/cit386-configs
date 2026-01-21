@@ -1,0 +1,3 @@
+# This the configuration for India-PC7
+set pcname India-PC7
+ip 192.168.20.3 192.168.20.1 24

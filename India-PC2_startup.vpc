@@ -1,4 +1,0 @@
-# This the configuration for India-PC2
-#
-set pcname India-PC2
-ip 192.168.10.4 192.168.10.1 24

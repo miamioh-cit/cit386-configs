@@ -1,6 +1,6 @@
 enable
 conf t
-hostname Europe-Int
+hostname foxtrot-Int
 no banner login
 no banner exec
 no banner incoming
@@ -58,3 +58,4 @@ line vty 0 4
 end
 !
 copy run start
+

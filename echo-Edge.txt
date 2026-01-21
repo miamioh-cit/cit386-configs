@@ -1,6 +1,6 @@
 en
 conf t
-hostname America-Edge
+hostname echo-Edge
 
 no banner login
 no banner exec
@@ -48,4 +48,5 @@ line vty 0 4
 !
 end
 !
+
 copy run start

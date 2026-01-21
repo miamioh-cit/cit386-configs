@@ -1,0 +1,4 @@
+# This the configuration for golf-PC5
+set pcname golf-PC5
+ip 192.168.10.3 192.168.10.1 24
+.save

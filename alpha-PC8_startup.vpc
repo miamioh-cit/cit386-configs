@@ -1,4 +1,4 @@
-# This the configuration for Switzerland-PC8
+# This the configuration for alpha-PC8
 #
 # Uncomment the following line to enable DHCP
 # dhcp
@@ -6,4 +6,4 @@
 # ip 192.168.1.1 255.0.0.0
 #
 
-set pcname Switzerland-PC8
+set pcname alpha-PC8

@@ -1,0 +1,3 @@
+set pcname bravo-PC4
+ip 192.168.20.6 192.168.20.1 24
+.save

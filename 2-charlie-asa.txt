@@ -1,5 +1,5 @@
 Conf t
-hostname charlie-ASA
+hostname charlie-asa
 enable password admin
 !
 interface GigabitEthernet0/0
@@ -38,3 +38,4 @@ route inside 192.168.40.0 255.255.255.0 192.168.0.2 1
 : end
 
 wri mem
+

@@ -1,6 +1,6 @@
 enable
 conf t
-hostname alpha-Int
+hostname alpha-int
 no banner login
 no banner exec
 no banner incoming

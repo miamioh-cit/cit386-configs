@@ -1,6 +1,6 @@
 enable
 conf t
-hostname bravo-Int
+hostname bravo-int
 no banner login
 no banner exec
 no banner incoming
@@ -58,4 +58,5 @@ line vty 0 4
 end
 !
 copy run start
+
 

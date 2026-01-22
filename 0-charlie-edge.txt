@@ -4,8 +4,8 @@ hostname charlie-edge
 no banner login
 no banner exec
 no banner incoming
-ip domain lookup
-
+no ip domain lookup
+!
 interface GigabitEthernet0/0
  ip address 10.15.0.2 255.255.255.0
  no shutdown
@@ -23,30 +23,31 @@ interface GigabitEthernet0/4
  no shutdown
 !
 router ospf 100
- network 10.1.0.0 0.0.0.255 area 0
  network 10.11.0.0 0.0.0.255 area 0
  network 10.4.0.0 0.0.0.255 area 0
  network 10.15.0.0 0.0.0.255 area 0
- 
+!
 aaa new-model
+aaa authentication login default local
 ip domain-name netwexp.com
 username admin secret admin
-ip ssh version 1
-
+crypto key generate rsa modulus 2048
+ip ssh version 2
+!
 line con 0
  exec-timeout 0 0
  privilege level 15
  logging synchronous
+!
 line aux 0
  exec-timeout 0 0
  privilege level 15
  logging synchronous
+!
 line vty 0 4
- login authentication local
- transport input ssh telnet
+ login authentication default
+ transport input ssh
 !
 end
 !
-
 copy run start
-

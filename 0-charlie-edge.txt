@@ -1,6 +1,6 @@
 en
 conf t
-hostname charlie-Edge
+hostname charlie-edge
 no banner login
 no banner exec
 no banner incoming
@@ -49,3 +49,4 @@ end
 !
 
 copy run start
+

@@ -1,5 +1,5 @@
 Conf t
-hostname alpha-ASA
+hostname alpha-asa
 enable password admin
 !
 interface GigabitEthernet0/0

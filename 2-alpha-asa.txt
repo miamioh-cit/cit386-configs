@@ -1,4 +1,5 @@
-Conf t
+en
+conf t
 hostname alpha-asa
 enable password admin
 !

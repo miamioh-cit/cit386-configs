@@ -2,14 +2,16 @@ enable
 conf t
 
 hostname alpha-edge
+
 no banner login
 no banner exec
 no banner incoming
-ip domain lookup
-!
+no ip domain lookup
+
+! ---- Interfaces ----
 interface GigabitEthernet0/1
  ip address 10.1.0.1 255.255.255.0
-no shutdown
+ no shutdown
 !
 interface GigabitEthernet0/2
  ip address 10.2.0.1 255.255.255.0
@@ -31,6 +33,8 @@ interface GigabitEthernet0/6
  ip address 10.10.0.1 255.255.255.0
  no shutdown
 !
+
+! ---- OSPF ----
 router ospf 100
  network 10.1.0.0 0.0.0.255 area 0
  network 10.2.0.0 0.0.0.255 area 0
@@ -38,25 +42,44 @@ router ospf 100
  network 10.9.0.0 0.0.0.255 area 0
  network 10.10.0.0 0.0.0.255 area 0
  network 10.11.0.0 0.0.0.255 area 0
+!
 
-!
+! ---- AAA + local user ----
 aaa new-model
-ip domain-name netwexp.com
 username admin secret admin
-ip ssh version 1
-!
+
+! ---- SSHv2 prerequisites ----
+ip domain-name netwexp.com
+
+! Generate RSA keys (needed for SSH). If keys already exist, this will prompt/replace.
+crypto key generate rsa modulus 2048
+
+! Force SSH v2
+ip ssh version 2
+
+! Optional hardening (safe defaults)
+ip ssh time-out 60
+ip ssh authentication-retries 2
+
+! ---- Console / AUX ----
 line con 0
  exec-timeout 0 0
  privilege level 15
  logging synchronous
+!
 line aux 0
  exec-timeout 0 0
  privilege level 15
  logging synchronous
+!
+
+! ---- VTY: SSH-only, AAA-backed login ----
+aaa authentication login default local
+
 line vty 0 4
- login authentication local
- transport input ssh telnet
+ login authentication default
+ transport input ssh
 !
+
 end
-!
 copy run start
